@@ -4,7 +4,7 @@ module.exports = {
   getAllLists: (req: Request, res: Response) => {
     res.send("get all cards");
   },
-  createList: (req: Request, res: Response) => {
-    res.send("create list");
+  createList: ({ body: { name, color } }: Request, res: Response) => {
+    res.send(`name: ${name}  /  color: ${color}`);
   },
 };
