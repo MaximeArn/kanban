@@ -1,8 +1,9 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+const { getAllLists, createList } = require("../controllers/lists");
+
 const listsRouter = Router();
 
-listsRouter.get("/", (req: Request, res: Response) =>
-  res.send("get all lists")
-);
+listsRouter.get("/", getAllLists);
+listsRouter.post("/", createList);
 
 export default listsRouter;

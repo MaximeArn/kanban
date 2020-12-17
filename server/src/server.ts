@@ -10,4 +10,6 @@ const app = express();
 app.use("/lists", listRouter);
 app.use("/cards", cardsRouter);
 
-app.listen(PORT, () => console.log(`server started on port ${PORT}`));
+app.listen(PORT, () =>
+  console.log(`server started on port http://localhost:${PORT}`)
+);

@@ -1,9 +1,9 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+const { getAllCards, createCard } = require("../controllers/cards");
 
 const cardsRouter = Router();
 
-cardsRouter.get("/", (req: Request, res: Response) =>
-  res.send("get all cards")
-);
+cardsRouter.get("/", getAllCards);
+cardsRouter.post("/", createCard);
 
 export default cardsRouter;
