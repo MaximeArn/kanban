@@ -1,12 +1,13 @@
 import { connect, connection as database } from "mongoose";
+module.exports = () => {
+  connect(`${process.env.DATABASE_URL}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 
-connect(`${process.env.DATABASE_URL}`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-database.on("error", () => console.log("error during connection to database"));
-database.on("connected", () => console.log("connected to database"));
-database.on("disconnected", () => console.log("diconnected from database"));
-
-module.exports = database;
+  database.on("error", () =>
+    console.log("error during connection to database")
+  );
+  database.on("connected", () => console.log("connected to database"));
+  database.on("disconnected", () => console.log("diconnected from database"));
+};
