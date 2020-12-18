@@ -1,7 +1,7 @@
-import { Schema, SchemaTypes } from "mongoose";
+import { Schema } from "mongoose";
 
 export default new Schema({
   name: String,
   color: { type: String, default: "#ffffff" },
-  cards: [{ _id: SchemaTypes.ObjectId, position: Number }],
+  cards: [{ title: String, infos: String, color: String }],
 });
