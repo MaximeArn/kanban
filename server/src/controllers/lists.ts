@@ -22,4 +22,17 @@ module.exports = {
       res.send(error);
     }
   },
+  modifyList: async ({ body: { name, color } }: Request, res: Response) => {
+    try {
+      const modifiedList = await List.findByIdAndUpdate(
+        "5fdcb35409e144ecf960b71d",
+        { name, color },
+        { useFindAndModify: false, new: true }
+      );
+      res.send(modifiedList);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+  },
 };
