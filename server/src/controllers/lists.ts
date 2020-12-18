@@ -11,9 +11,9 @@ module.exports = {
       res.send(error);
     }
   },
-  createList: async ({ body: { name, color } }: Request, res: Response) => {
+  createList: async ({ body }: Request, res: Response) => {
     try {
-      const newList = new List({ name: name, color: color });
+      const newList = new List(body);
       const insertedList = await newList.save();
 
       res.send(insertedList).status(200);
@@ -22,13 +22,12 @@ module.exports = {
       res.send(error);
     }
   },
-  modifyList: async ({ body: { id, name, color } }: Request, res: Response) => {
+  modifyList: async ({ body }: Request, res: Response) => {
     try {
-      const modifiedList = await List.findByIdAndUpdate(
-        id,
-        { name, color },
-        { useFindAndModify: false, new: true }
-      );
+      const modifiedList = await List.findByIdAndUpdate(body, body, {
+        useFindAndModify: false,
+        new: true,
+      });
       res.send(modifiedList).status(200);
     } catch (error) {
       console.error(error);
