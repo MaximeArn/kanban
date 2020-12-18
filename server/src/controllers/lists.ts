@@ -22,14 +22,23 @@ module.exports = {
       res.send(error);
     }
   },
-  modifyList: async ({ body: { name, color } }: Request, res: Response) => {
+  modifyList: async ({ body: { id, name, color } }: Request, res: Response) => {
     try {
       const modifiedList = await List.findByIdAndUpdate(
-        "5fdcb35409e144ecf960b71d",
+        id,
         { name, color },
         { useFindAndModify: false, new: true }
       );
-      res.send(modifiedList);
+      res.send(modifiedList).status(200);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+  },
+  deleteList: async ({ body: { id } }: Request, res: Response) => {
+    try {
+      const deletedList = await List.findByIdAndDelete(id);
+      res.send(deletedList).status(200);
     } catch (error) {
       console.error(error);
       res.send(error);
