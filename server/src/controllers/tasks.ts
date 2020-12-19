@@ -64,7 +64,7 @@ const tasksController = {
     res: Response
   ) => {
     try {
-      const deletedTask = await List.findOneAndUpdate(
+      const oldList = await List.findOneAndUpdate(
         { _id: fromListId, "tasks._id": taskData.id },
         {
           $pull: {
@@ -73,21 +73,15 @@ const tasksController = {
         },
         { new: true, useFindAndModify: false }
       );
-      // if (deletedTask) {
-      //   const createdCard = await Task.create(taskData);
-      //   const updatedList = await List.findByIdAndUpdate(
-      //     toListId,
-      //     {
-      //       $push: { tasks: createdCard },
-      //     },
-      //     { new: true, useFindAndModify: false }
-      //   );
-      //   res.send({ deletedTask, updatedList });
-      // }
-
-      res.send(deletedTask);
-      // const added = await tasksController.createTask(req, res);
-      // const deleted = await tasksController.removeTask(req, res);
+      const createdCard = await Task.create(taskData);
+      const newList = await List.findByIdAndUpdate(
+        toListId,
+        {
+          $push: { tasks: createdCard },
+        },
+        { new: true, useFindAndModify: false }
+      );
+      res.send({ oldList, newList });
     } catch (error) {
       console.error(error);
       res.send(error).status(500);
