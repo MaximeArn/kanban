@@ -1,9 +1,10 @@
 import { Router } from "express";
-const { createTask, modifyTask } = require("../controllers/tasks");
+const { createTask, modifyTask, removeTask } = require("../controllers/tasks");
 
 const tasksRouter = Router();
 
 tasksRouter.post("/", createTask);
 tasksRouter.patch("/", modifyTask);
+tasksRouter.delete("/", removeTask);
 
 export default tasksRouter;
