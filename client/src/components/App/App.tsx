@@ -5,7 +5,7 @@ import "./App.scss";
 
 function App() {
   useEffect(() => {
-    const lists = axios
+    axios
       .get(`${apiUrl}/lists`)
       .then(({ data }) => console.log(data))
       .catch((err) => console.log(err));
