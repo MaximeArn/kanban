@@ -8,7 +8,9 @@ function App({ lists, getLists }: any) {
     getLists();
   }, []);
   return (
-    <div className="App">
+    <div className="app">
+      <h1>Kanban</h1>
+      <div className="app-content"></div>
       {lists.map((list: ListType) => (
         <List key={list.name} {...list} />
       ))}
