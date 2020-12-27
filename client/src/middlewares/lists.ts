@@ -10,7 +10,6 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => ({
       axios
         .get(`${apiUrl}/lists`)
         .then(({ data }) => {
-          console.log(data);
           next({ type, payload: data });
         })
         .catch((err) => console.log(err));

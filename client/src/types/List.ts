@@ -1,11 +1,11 @@
 import { Task } from "./Tasks";
 
 export interface ListsState {
-  lists: List[];
+  lists: ListType[];
 }
 
-export interface List {
-  name: String;
+export interface ListType {
+  name: string;
   color: string;
   tasks: Task[];
 }
