@@ -10,7 +10,7 @@ const Task = ({ title, info, color, done }: TaskType) => {
       <div className="task-title">
         <input type="checkbox" name="done" checked={done} />
         <i>
-          <MdLabel />
+          <MdLabel color={color} />
         </i>
         <p>{title}</p>
       </div>
