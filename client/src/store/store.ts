@@ -1,7 +1,8 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import listsReducer from "../reducers/lists";
 
 const store = configureStore({
-  reducer: {},
+  reducer: { listsReducer },
 });
 export default store;
 

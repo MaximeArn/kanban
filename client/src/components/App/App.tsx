@@ -3,13 +3,15 @@ import axios from "axios";
 import apiUrl from "../../environments/api";
 import "./App.scss";
 
-function App() {
-  useEffect(() => {
-    axios
-      .get(`${apiUrl}/lists`)
-      .then(({ data }) => console.log(data))
-      .catch((err) => console.log(err));
-  }, []);
+function App({ lists }: any) {
+  console.log("lists  :  ", lists);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${apiUrl}/lists`)
+  //     .then(({ data }) => console.log(data))
+  //     .catch((err) => console.log(err));
+  // }, []);
   return (
     <div className="App">
       <h2>Hello</h2>

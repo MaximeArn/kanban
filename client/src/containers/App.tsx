@@ -3,7 +3,9 @@ import { Dispatch } from "react";
 import { connect } from "react-redux";
 import App from "../components/App/App";
 
-const mapStateToProps = (state: any) => {};
+const mapStateToProps = ({ listsReducer }: any) => ({
+  lists: listsReducer.lists,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
   getLists: () => dispatch({ type: "getLists" }),
