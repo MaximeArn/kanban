@@ -1,0 +1,28 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #333;
+  padding: 1rem 0.5rem;
+  margin-right: 1rem;
+
+  &-title {
+    input {
+      margin-right: 1rem;
+    }
+
+    display: flex;
+  }
+
+  &-icons {
+    button {
+      background-color: transparent;
+      border: none;
+      margin-right: 1rem;
+      color: rgb(134, 56, 56);
+
+      &:first-child {
+        color: rgb(56, 134, 69);
+      }
+    }
+  }
+}

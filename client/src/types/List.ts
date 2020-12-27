@@ -1,4 +1,4 @@
-import { Task } from "./Tasks";
+import { TaskType } from "./Tasks";
 
 export interface ListsState {
   lists: ListType[];
@@ -7,5 +7,5 @@ export interface ListsState {
 export interface ListType {
   name: string;
   color: string;
-  tasks: Task[];
+  tasks: TaskType[];
 }

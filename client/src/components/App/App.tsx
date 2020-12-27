@@ -6,7 +6,7 @@ import "./App.scss";
 function App({ lists, getLists }: any) {
   useEffect(() => {
     getLists();
-  }, []);
+  });
   return (
     <div className="app">
       <h1>Kanban</h1>

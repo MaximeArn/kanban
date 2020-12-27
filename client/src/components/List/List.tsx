@@ -1,5 +1,7 @@
 import React from "react";
 import { ListType } from "../../types/List";
+import { TaskType } from "../../types/Tasks";
+import Task from "../Task/Task";
 import "./list.scss";
 
 const List = ({ name, color, tasks }: ListType) => {
@@ -9,7 +11,11 @@ const List = ({ name, color, tasks }: ListType) => {
         <div className="tag" style={{ backgroundColor: color }}></div>
         <h2>{name}</h2>
       </div>
-      <ul></ul>
+      <ul>
+        {tasks.map((task: TaskType) => (
+          <Task key={task.title} {...task} />
+        ))}
+      </ul>
     </div>
   );
 };
