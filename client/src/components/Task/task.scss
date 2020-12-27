@@ -1,15 +1,19 @@
 .task {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 1px solid #333;
   padding: 1rem 0.5rem;
-  margin-right: 1rem;
+  margin-bottom: 1rem;
 
   &-title {
+    display: flex;
+    align-items: center;
     input {
       margin-right: 1rem;
     }
 
+    font-weight: bold;
     display: flex;
   }
 
@@ -17,7 +21,7 @@
     button {
       background-color: transparent;
       border: none;
-      margin-right: 1rem;
+      margin-right: 0.5rem;
       color: rgb(134, 56, 56);
 
       &:first-child {

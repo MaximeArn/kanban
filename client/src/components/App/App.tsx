@@ -6,14 +6,15 @@ import "./App.scss";
 function App({ lists, getLists }: any) {
   useEffect(() => {
     getLists();
-  });
+  }, []);
   return (
     <div className="app">
       <h1>Kanban</h1>
-      <div className="app-content"></div>
-      {lists.map((list: ListType) => (
-        <List key={list.name} {...list} />
-      ))}
+      <div className="app-content">
+        {lists.map((list: ListType) => (
+          <List key={list._id} {...list} />
+        ))}
+      </div>
     </div>
   );
 }

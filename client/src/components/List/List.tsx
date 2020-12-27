@@ -13,7 +13,7 @@ const List = ({ name, color, tasks }: ListType) => {
       </div>
       <ul>
         {tasks.map((task: TaskType) => (
-          <Task key={task.title} {...task} />
+          <Task key={task._id} {...task} />
         ))}
       </ul>
     </div>
