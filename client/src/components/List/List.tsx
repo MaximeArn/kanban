@@ -1,14 +1,14 @@
 import React from "react";
 import { ListType } from "../../types/List";
 import { TaskType } from "../../types/Tasks";
-import Task from "../Task/Task";
+import Task from "../../containers/Task";
 import "./list.scss";
 
-const List = ({ name, color, tasks }: ListType) => {
+const List = ({ name, color, tasks, _id }: ListType) => {
   return (
-    <div className="list">
+    <div className="list" data-id={_id}>
       <div className="title">
-        <div className="tag" style={{ backgroundColor: color }}></div>
+        <div className="tag" style={{ color: color }}></div>
         <h2>{name}</h2>
       </div>
       <ul>

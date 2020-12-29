@@ -1,24 +1,24 @@
 import React from "react";
-import { FaPen, FaTrashAlt } from "react-icons/fa";
+import { FaPen, FaTrashAlt, FaTag } from "react-icons/fa";
 import { MdLabel } from "react-icons/md";
 import { TaskType } from "../../types/Tasks";
 import "./task.scss";
 
-const Task = ({ title, info, color, done }: TaskType) => {
+const Task = ({ _id, title, info, color, done, deleteTask }: TaskType) => {
   return (
-    <li className="task">
+    <li className="task" data-id={_id}>
       <div className="task-title">
-        <input type="checkbox" name="done" checked={done} />
         <i>
-          <MdLabel color={color} />
+          <FaTag color={color} />
         </i>
+        <input type="checkbox" name="done" checked={done} />
         <p>{title}</p>
       </div>
       <div className="task-icons">
         <button>
           <FaPen />
         </button>
-        <button>
+        <button onClick={deleteTask()}>
           <FaTrashAlt />
         </button>
       </div>

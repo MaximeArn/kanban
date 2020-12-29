@@ -1,11 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import listsReducer from "../reducers/lists";
 import listsMiddleware from "../middlewares/lists";
+import tasksMiddleware from "../middlewares/tasks";
 
 const store = configureStore({
   reducer: { listsReducer },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().prepend(listsMiddleware),
+    getDefaultMiddleware().prepend(listsMiddleware, tasksMiddleware),
 });
 export default store;
 
