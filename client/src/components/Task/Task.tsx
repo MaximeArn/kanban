@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaPen, FaTrashAlt, FaTag } from "react-icons/fa";
-import { MdLabel } from "react-icons/md";
 import { TaskType } from "../../types/Tasks";
 import "./task.scss";
 
 const Task = ({ _id, title, info, color, done, deleteTask }: TaskType) => {
+  const taskRef = useRef<HTMLLIElement>(null);
   return (
-    <li className="task" data-id={_id}>
+    <li className="task" data-id={_id} ref={taskRef}>
       <div className="task-title">
         <i>
           <FaTag color={color} />
@@ -18,7 +18,7 @@ const Task = ({ _id, title, info, color, done, deleteTask }: TaskType) => {
         <button>
           <FaPen />
         </button>
-        <button onClick={deleteTask()}>
+        <button onClick={() => deleteTask(taskRef.current?.dataset.id)}>
           <FaTrashAlt />
         </button>
       </div>

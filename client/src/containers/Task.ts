@@ -8,7 +8,8 @@ const mapStateToProps = ({ listsReducer }: RootReducer) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  deleteTask: () => dispatch({ type: "task/delete" }),
+  deleteTask: (taskId: string) =>
+    dispatch({ type: "task/delete", payload: taskId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Task);

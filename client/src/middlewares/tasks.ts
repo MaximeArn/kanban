@@ -3,13 +3,15 @@ import { Middleware } from "@reduxjs/toolkit";
 const tasksMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
   action
 ) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case "task/delete":
-      console.log("task middleware");
+      console.log(payload);
       break;
 
     default:
-      next(action);
+      return next(action);
   }
 };
 

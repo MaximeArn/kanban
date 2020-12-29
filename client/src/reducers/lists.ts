@@ -4,7 +4,7 @@ const initialState = {
 
 const listsReducer = (state = initialState, { type, payload }: any) => {
   switch (type) {
-    case "getLists":
+    case "list/getAll":
       return { ...state, lists: payload };
     default:
       return state;

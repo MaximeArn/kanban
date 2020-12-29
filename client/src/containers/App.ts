@@ -9,7 +9,7 @@ const mapStateToProps = ({ listsReducer }: RootReducer) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  getLists: () => dispatch({ type: "getLists" }),
+  getLists: () => dispatch({ type: "list/getAll" }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
