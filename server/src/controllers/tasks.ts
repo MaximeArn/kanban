@@ -37,16 +37,14 @@ const tasksController = {
       res.send(error).status(500);
     }
   },
-  removeTask: async (
-    { body: { oldListId, taskData } }: Request,
-    res: Response
-  ) => {
+  removeTask: async ({ body: { listId, taskId } }: Request, res: Response) => {
     try {
+      console.log(listId, taskId);
       const deletedList = await List.findOneAndUpdate(
-        { _id: oldListId, "tasks._id": taskData.id },
+        { _id: listId, "tasks._id": taskId },
         {
           $pull: {
-            tasks: { _id: taskData.id },
+            tasks: { _id: taskId },
           },
         },
         { new: true, useFindAndModify: false }

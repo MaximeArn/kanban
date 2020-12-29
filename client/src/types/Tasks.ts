@@ -7,4 +7,5 @@ export interface TaskType {
   done: boolean;
   _id: string;
   deleteTask: Function;
+  listId: string;
 }

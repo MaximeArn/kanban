@@ -4,4 +4,5 @@ export default new Schema({
   title: String,
   info: { type: String, default: null },
   color: { type: String, default: "#fff" },
+  done: { type: Boolean, default: false },
 });

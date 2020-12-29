@@ -3,10 +3,18 @@ import { FaPen, FaTrashAlt, FaTag } from "react-icons/fa";
 import { TaskType } from "../../types/Tasks";
 import "./task.scss";
 
-const Task = ({ _id, title, info, color, done, deleteTask }: TaskType) => {
-  const taskRef = useRef<HTMLLIElement>(null);
+const Task = ({
+  listId,
+  _id,
+  title,
+  info,
+  color,
+  done,
+  deleteTask,
+}: TaskType) => {
+  const task = useRef<HTMLLIElement>(null);
   return (
-    <li className="task" data-id={_id} ref={taskRef}>
+    <li className="task" data-id={_id} ref={task}>
       <div className="task-title">
         <i>
           <FaTag color={color} />
@@ -18,7 +26,7 @@ const Task = ({ _id, title, info, color, done, deleteTask }: TaskType) => {
         <button>
           <FaPen />
         </button>
-        <button onClick={() => deleteTask(taskRef.current?.dataset.id)}>
+        <button onClick={() => deleteTask(listId, task.current?.dataset.id)}>
           <FaTrashAlt />
         </button>
       </div>
