@@ -1,36 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { ListType } from "../../types/List";
 import { TaskType } from "../../types/Tasks";
+import CreateTaskModal from "../../containers/modals/CeateTaskModal";
 import Task from "../../containers/Task";
 import { FaPen, FaTrashAlt, FaPlus } from "react-icons/fa";
 import "./list.scss";
 
 const List = ({ name, color, tasks, _id }: ListType) => {
+  const [createTaskModalOpen, setCreateTaskModalOpen] = useState(false);
+
   return (
-    <article className="list" data-id={_id}>
-      <header className="list-header">
-        <div className="left-icons-group">
-          <button>
-            <FaTrashAlt />
+    <>
+      {createTaskModalOpen && <CreateTaskModal listId={_id} />}
+      <article className="list">
+        <header className="list-header">
+          <div className="left-icons-group">
+            <button>
+              <FaTrashAlt />
+            </button>
+            <button>
+              <FaPen />
+            </button>
+          </div>
+          <div className="title">
+            <div className="tag" style={{ backgroundColor: color }}></div>
+            <h2>{name}</h2>
+          </div>
+          <button onClick={() => setCreateTaskModalOpen(true)}>
+            <FaPlus />
           </button>
-          <button>
-            <FaPen />
-          </button>
-        </div>
-        <div className="title">
-          <div className="tag" style={{ backgroundColor: color }}></div>
-          <h2>{name}</h2>
-        </div>
-        <button onClick={() => console.log(_id)}>
-          <FaPlus />
-        </button>
-      </header>
-      <ul>
-        {tasks.map((task: TaskType) => (
-          <Task key={task._id} {...task} listId={_id} />
-        ))}
-      </ul>
-    </article>
+        </header>
+        <ul>
+          {tasks.map((task: TaskType) => (
+            <Task key={task._id} {...task} listId={_id} />
+          ))}
+        </ul>
+      </article>
+    </>
   );
 };
 
