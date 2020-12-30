@@ -1,15 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { createTaskModalProps } from "../../../types/Modals";
 import "./createTaskModal.scss";
 
-const CreateTaskModal = ({ listId, createTask }: createTaskModalProps) => {
+const CreateTaskModal = ({
+  listId,
+  createTask,
+  setCreateTaskModalOpen,
+}: createTaskModalProps) => {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
   const [color, setColor] = useState("#ffffff");
 
+  const modal = useRef<HTMLDivElement>(null);
+
+  const handleClick = ({ target }: any) => {
+    !modal.current?.contains(target) && setCreateTaskModalOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
   return (
     <div className="modal">
-      <div className="modal-content">
+      <div className="modal-content" ref={modal}>
         <header>
           <h2>Create a new task </h2>
         </header>

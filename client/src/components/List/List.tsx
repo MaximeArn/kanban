@@ -11,7 +11,12 @@ const List = ({ name, color, tasks, _id }: ListType) => {
 
   return (
     <>
-      {createTaskModalOpen && <CreateTaskModal listId={_id} />}
+      {createTaskModalOpen && (
+        <CreateTaskModal
+          listId={_id}
+          setCreateTaskModalOpen={setCreateTaskModalOpen}
+        />
+      )}
       <article className="list">
         <header className="list-header">
           <div className="left-icons-group">
