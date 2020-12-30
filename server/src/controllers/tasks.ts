@@ -3,9 +3,13 @@ import Task from "../models/task";
 import List from "../models/list";
 
 const tasksController = {
-  createTask: async ({ body: { listId, task } }: Request, res: Response) => {
+  createTask: async (
+    { body: { listId, taskData } }: Request,
+    res: Response
+  ) => {
     try {
-      const createdCard = await Task.create(task);
+      const createdCard = await Task.create(taskData);
+      console.log(createdCard);
       const updatedList = await List.findByIdAndUpdate(
         listId,
         {
@@ -13,7 +17,7 @@ const tasksController = {
         },
         { new: true, useFindAndModify: false }
       );
-      res.send({ updatedList }).status(200);
+      res.send(updatedList).status(200);
     } catch (error) {
       console.error(error);
       res.send(error).status(500);
@@ -39,7 +43,6 @@ const tasksController = {
   },
   removeTask: async ({ body: { listId, taskId } }: Request, res: Response) => {
     try {
-      console.log(listId, taskId);
       const deletedList = await List.findOneAndUpdate(
         { _id: listId, "tasks._id": taskId },
         {

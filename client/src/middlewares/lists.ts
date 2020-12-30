@@ -17,7 +17,8 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
         .catch((err) => console.log(err));
       break;
     default:
-      return next(action);
+      next(action);
+      break;
   }
 };
 

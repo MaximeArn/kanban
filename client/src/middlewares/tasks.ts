@@ -20,6 +20,12 @@ const tasksMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
         .then(({ data }) => next({ type, payload: data }))
         .catch((error) => console.log(error));
       break;
+    case "task/create":
+      axios
+        .post(`${apiUrl}/tasks`, payload)
+        .then(({ data }) => next({ type, payload: data }))
+        .catch((error) => console.log(error));
+      break;
 
     default:
       return next(action);

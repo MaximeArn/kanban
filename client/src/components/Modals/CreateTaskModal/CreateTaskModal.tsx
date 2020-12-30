@@ -4,7 +4,7 @@ import "./createTaskModal.scss";
 
 const CreateTaskModal = ({ listId, createTask }: createTaskModalProps) => {
   const [title, setTitle] = useState("");
-  const [infos, setInfos] = useState("");
+  const [info, setInfo] = useState("");
   const [color, setColor] = useState("#ffffff");
 
   return (
@@ -16,6 +16,11 @@ const CreateTaskModal = ({ listId, createTask }: createTaskModalProps) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            createTask(listId, {
+              title,
+              info,
+              color,
+            });
           }}
         >
           <input type="hidden" name="listId" value={listId} />
@@ -30,8 +35,8 @@ const CreateTaskModal = ({ listId, createTask }: createTaskModalProps) => {
             type="text"
             name="infos"
             placeholder="Infos"
-            value={infos}
-            onChange={({ target: { value } }) => setInfos(value)}
+            value={info}
+            onChange={({ target: { value } }) => setInfo(value)}
           />
           <input
             type="color"
