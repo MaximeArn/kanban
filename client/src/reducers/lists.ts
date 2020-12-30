@@ -9,14 +9,13 @@ const listsReducer = (state = initialState, { type, payload }: any) => {
     case "list/getAll":
       return { ...state, lists: payload };
     case "task/delete":
-      console.log(payload);
       const { lists } = state;
-      const filteredLists: ListType[] = lists.filter(
-        ({ _id }) => _id !== payload._id
-      );
-      filteredLists.push(payload);
-      console.log(filteredLists);
-      return { ...state, lists: filteredLists };
+      const newLists = lists.map((list: ListType) => {
+        return list._id === payload._id
+          ? { ...list, tasks: payload.tasks }
+          : list;
+      });
+      return { ...state, lists: newLists };
     default:
       return state;
   }
