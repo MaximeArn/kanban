@@ -27,6 +27,10 @@
       margin-right: 0.5rem;
       color: rgb(134, 56, 56);
 
+      &:focus {
+        outline: none;
+      }
+
       &:first-child {
         color: rgb(56, 134, 69);
       }

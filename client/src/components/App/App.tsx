@@ -9,12 +9,14 @@ function App({ lists, getLists }: any) {
   }, []);
   return (
     <div className="app">
-      <h1>Kanban</h1>
-      <div className="app-content">
+      <header>
+        <h1>Kanban</h1>
+      </header>
+      <main className="app-content">
         {lists.map((list: ListType) => (
           <List key={list._id} {...list} />
         ))}
-      </div>
+      </main>
     </div>
   );
 }

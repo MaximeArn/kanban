@@ -4,6 +4,12 @@ const initialState = {
   lists: [],
 };
 
+// const updateTaskArray = (lists: ListType[], newList: ListType) => {
+//   const newLists = lists.map((list: ListType) => {
+//     return list._id === newList._id ? { ...list, tasks: newList.tasks } : list;
+//   });
+// };
+
 const listsReducer = (state = initialState, { type, payload }: any) => {
   switch (type) {
     case "list/getAll":

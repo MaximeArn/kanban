@@ -5,22 +5,39 @@
   margin-right: 2rem;
   margin-bottom: 4rem;
 
-  .title {
-    color: #333;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 1rem 0;
+  &-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
     border-bottom: 1px solid #333;
+    padding: 1rem 1.5rem;
 
-    .tag {
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      margin-right: 0.4rem;
+    button {
+      background-color: transparent;
+      border: none;
+      margin-right: 0.5rem;
+      color: #fff;
+      font-size: 1.2em;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .title {
+      color: #333;
+      font-weight: bold;
+      font-size: 1.2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .tag {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-right: 0.4rem;
+      }
     }
   }
 
