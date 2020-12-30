@@ -10,7 +10,6 @@ const tasksMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
   switch (type) {
     case "task/delete":
       const { listId, taskId } = payload;
-      console.log(payload);
       axios
         .delete(`${apiUrl}/tasks`, {
           data: {
@@ -18,7 +17,7 @@ const tasksMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
             taskId,
           },
         })
-        .then(({ data }) => console.log(data))
+        .then(({ data }) => next({ type, payload: data }))
         .catch((error) => console.log(error));
       break;
 
