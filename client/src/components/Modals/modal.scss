@@ -1,0 +1,35 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-content {
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid grey;
+    color: #333;
+
+    header {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    form {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

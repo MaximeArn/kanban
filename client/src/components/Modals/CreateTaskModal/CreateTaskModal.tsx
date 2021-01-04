@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createTaskModalProps } from "../../../types/Modals";
-import "./createTaskModal.scss";
+import "../modal.scss";
 
 const CreateTaskModal = ({
   listId,
