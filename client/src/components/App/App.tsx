@@ -13,7 +13,9 @@ function App({ lists, getLists }: any) {
   const [createListModal, setCreateListModal] = useState(false);
   return (
     <div className="app">
-      {createListModal && <CreateListModal />}
+      {createListModal && (
+        <CreateListModal closeModal={() => setCreateListModal(false)} />
+      )}
       <header>
         <h1>Kanban</h1>
         <button onClick={() => setCreateListModal(true)}>
