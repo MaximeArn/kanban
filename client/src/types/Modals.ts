@@ -3,3 +3,8 @@ export interface createTaskModalProps {
   createTask: Function;
   setCreateTaskModalOpen: Function;
 }
+
+export interface createListModalProps {
+  createList: Function;
+  closeModal: Function;
+}
