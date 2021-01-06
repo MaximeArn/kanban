@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import List from "../List/List";
-import CreateListModal from "../Modals/CreateListModal/CreateListModal";
+import CreateListModal from "../../containers/modals/CreateListModal";
 import { FaPlus } from "react-icons/fa";
 import { ListType } from "../../types/List";
 import "./App.scss";

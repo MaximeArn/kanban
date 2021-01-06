@@ -28,6 +28,10 @@ const CreateListModal = ({ closeModal, createList }: createListModalProps) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            createList({
+              name,
+              color,
+            });
           }}
         >
           <input
