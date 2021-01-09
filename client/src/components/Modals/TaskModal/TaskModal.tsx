@@ -5,7 +5,9 @@ import "../modal.scss";
 const CreateTaskModal = ({
   listId,
   createTask,
+  editTask,
   closeModal,
+  action,
 }: TaskModalProps) => {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
@@ -28,16 +30,22 @@ const CreateTaskModal = ({
     <div className="modal">
       <div className="modal-content" ref={modal}>
         <header>
-          <h2>Create a new task </h2>
+          <h2>{action} Task</h2>
         </header>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            createTask(listId, {
-              title,
-              info,
-              color,
-            });
+            action.toLowerCase() === "create"
+              ? createTask(listId, {
+                  title,
+                  info,
+                  color,
+                })
+              : editTask(listId, {
+                  title,
+                  info,
+                  color,
+                });
             closeModal();
           }}
         >
@@ -62,7 +70,7 @@ const CreateTaskModal = ({
             value={color}
             onChange={({ target: { value } }) => setColor(value)}
           />
-          <button type="submit">Create</button>
+          <button type="submit">{action}</button>
         </form>
       </div>
     </div>
