@@ -15,6 +15,9 @@ const listsReducer = (state = initialState, { type, payload }: any) => {
     case "list/getAll":
       return { ...state, lists: payload };
 
+    case "list/create":
+      return { ...state, lists: [...state.lists, payload] };
+
     case "task/delete":
       return { ...state, lists: updateTaskArray(state.lists, payload) };
 

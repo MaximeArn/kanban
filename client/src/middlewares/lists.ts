@@ -22,6 +22,7 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
         .post(`${apiUrl}/lists`, payload)
         .then(({ data }) => {
           console.log(data);
+          next({ type, payload: data });
         })
         .catch((err) => console.log(err));
       break;
