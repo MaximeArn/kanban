@@ -9,4 +9,5 @@ export interface ListType {
   color: string;
   tasks: TaskType[];
   _id: string;
+  deleteList: Function;
 }

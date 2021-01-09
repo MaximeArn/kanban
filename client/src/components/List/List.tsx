@@ -6,7 +6,7 @@ import Task from "../../containers/Task";
 import { FaPen, FaTrashAlt, FaPlus } from "react-icons/fa";
 import "./list.scss";
 
-const List = ({ name, color, tasks, _id }: ListType) => {
+const List = ({ name, color, tasks, _id, deleteList }: ListType) => {
   const [createTaskModalOpen, setCreateTaskModalOpen] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ const List = ({ name, color, tasks, _id }: ListType) => {
       <article className="list">
         <header className="list-header">
           <div className="left-icons-group">
-            <button>
+            <button onClick={() => deleteList(_id)}>
               <FaTrashAlt />
             </button>
             <button>
