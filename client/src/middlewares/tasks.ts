@@ -27,8 +27,19 @@ const tasksMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
         .catch((error) => console.log(error));
       break;
 
+    case "task/edit":
+      console.log(payload);
+      axios
+        .patch(`${apiUrl}/tasks`, payload)
+        .then(({ data }) => {
+          console.log(data);
+          next({ type, payload: data });
+        })
+        .catch((error) => console.log(error));
+      break;
+
     default:
-      return next(action);
+      next(action);
   }
 };
 

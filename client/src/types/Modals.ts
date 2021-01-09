@@ -1,5 +1,6 @@
 export interface TaskModalProps {
   listId: string;
+  taskId?: string;
   createTask: Function;
   editTask: Function;
   closeModal: Function;

@@ -22,6 +22,7 @@ const Task = ({
           listId={listId}
           closeModal={() => setTaskModalOpen(false)}
           action="Edit"
+          taskId={_id}
         />
       )}
 

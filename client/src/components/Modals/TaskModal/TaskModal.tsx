@@ -8,6 +8,7 @@ const CreateTaskModal = ({
   editTask,
   closeModal,
   action,
+  taskId,
 }: TaskModalProps) => {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
@@ -45,6 +46,7 @@ const CreateTaskModal = ({
                   title,
                   info,
                   color,
+                  id: taskId,
                 });
             closeModal();
           }}
