@@ -1,5 +1,7 @@
-import { ListsState } from "./List";
+import { ListType } from "./List";
 
 export interface RootReducer {
-  listsReducer: ListsState;
+  listsReducer: {
+    lists: ListType[];
+  };
 }

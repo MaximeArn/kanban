@@ -1,3 +1,4 @@
+import { AnyAction } from "@reduxjs/toolkit";
 import { ListType } from "../types/List";
 
 const initialState = {
@@ -10,7 +11,7 @@ const updateTaskArray = (lists: ListType[], newList: ListType) => {
   });
 };
 
-const listsReducer = (state = initialState, { type, payload }: any) => {
+const listsReducer = (state = initialState, { type, payload }: AnyAction) => {
   switch (type) {
     case "list/getAll":
       return { ...state, lists: payload };

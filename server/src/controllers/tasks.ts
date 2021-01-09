@@ -9,7 +9,6 @@ const tasksController = {
   ) => {
     try {
       const createdCard = await Task.create(taskData);
-      console.log(createdCard);
       const updatedList = await List.findByIdAndUpdate(
         listId,
         {

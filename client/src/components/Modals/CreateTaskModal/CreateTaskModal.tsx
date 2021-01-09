@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { createTaskModalProps } from "../../../types/Modals";
+import { TaskModalProps } from "../../../types/Modals";
 import "../modal.scss";
 
 const CreateTaskModal = ({
   listId,
   createTask,
   setCreateTaskModalOpen,
-}: createTaskModalProps) => {
+}: TaskModalProps) => {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
   const [color, setColor] = useState("#ffffff");

@@ -1,10 +1,10 @@
-export interface createTaskModalProps {
+export interface TaskModalProps {
   listId: string;
   createTask: Function;
   setCreateTaskModalOpen: Function;
 }
 
-export interface createListModalProps {
+export interface ListModalProps {
   createList: Function;
   closeModal: Function;
 }

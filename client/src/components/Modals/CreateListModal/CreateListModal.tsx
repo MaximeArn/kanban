@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { createListModalProps } from "../../../types/Modals";
+import { ListModalProps } from "../../../types/Modals";
 import "../modal.scss";
 
-const CreateListModal = ({ closeModal, createList }: createListModalProps) => {
+const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
   const [name, setName] = useState("");
   const [color, setColor] = useState("#ffffff");
 
