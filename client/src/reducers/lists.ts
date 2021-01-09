@@ -18,6 +18,12 @@ const listsReducer = (state = initialState, { type, payload }: any) => {
     case "list/create":
       return { ...state, lists: [...state.lists, payload] };
 
+    case "list/delete":
+      const filteredLists = state.lists.filter(
+        (list: ListType) => list._id !== payload
+      );
+      return { ...state, lists: filteredLists };
+
     case "task/delete":
       return { ...state, lists: updateTaskArray(state.lists, payload) };
 

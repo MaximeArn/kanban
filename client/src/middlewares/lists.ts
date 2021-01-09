@@ -18,11 +18,9 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
       break;
 
     case "list/create":
-      console.log(payload);
       axios
         .post(`${apiUrl}/lists`, payload)
         .then(({ data }) => {
-          console.log(data);
           next({ type, payload: data });
         })
         .catch((err) => console.log(err));
