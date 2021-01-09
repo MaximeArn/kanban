@@ -18,11 +18,21 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
       break;
 
     case "list/create":
+      console.log(payload);
       axios
         .post(`${apiUrl}/lists`, payload)
         .then(({ data }) => {
           console.log(data);
           next({ type, payload: data });
+        })
+        .catch((err) => console.log(err));
+      break;
+
+    case "list/delete":
+      axios
+        .delete(`${apiUrl}/lists`, { data: payload })
+        .then(({ data }) => {
+          next({ type, payload: data._id });
         })
         .catch((err) => console.log(err));
       break;
