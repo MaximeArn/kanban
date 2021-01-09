@@ -5,7 +5,7 @@ import "../modal.scss";
 const CreateTaskModal = ({
   listId,
   createTask,
-  setCreateTaskModalOpen,
+  closeModal,
 }: TaskModalProps) => {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
@@ -14,7 +14,7 @@ const CreateTaskModal = ({
   const modal = useRef<HTMLDivElement>(null);
 
   const handleClick = ({ target }: any) => {
-    !modal.current?.contains(target) && setCreateTaskModalOpen(false);
+    !modal.current?.contains(target) && closeModal();
   };
 
   useEffect(() => {
@@ -38,6 +38,7 @@ const CreateTaskModal = ({
               info,
               color,
             });
+            closeModal();
           }}
         >
           <input type="hidden" name="listId" value={listId} />

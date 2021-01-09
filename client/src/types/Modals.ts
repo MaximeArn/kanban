@@ -1,7 +1,7 @@
 export interface TaskModalProps {
   listId: string;
   createTask: Function;
-  setCreateTaskModalOpen: Function;
+  closeModal: Function;
 }
 
 export interface ListModalProps {

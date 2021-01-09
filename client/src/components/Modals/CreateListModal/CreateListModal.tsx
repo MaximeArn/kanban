@@ -32,6 +32,7 @@ const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
               name,
               color,
             });
+            closeModal();
           }}
         >
           <input

@@ -14,7 +14,7 @@ const List = ({ name, color, tasks, _id, deleteList }: ListType) => {
       {createTaskModalOpen && (
         <CreateTaskModal
           listId={_id}
-          setCreateTaskModalOpen={setCreateTaskModalOpen}
+          closeModal={() => setCreateTaskModalOpen(false)}
         />
       )}
       <article className="list">
