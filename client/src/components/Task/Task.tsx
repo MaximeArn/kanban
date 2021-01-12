@@ -36,7 +36,9 @@ const Task = ({
             type="checkbox"
             name="done"
             checked={done}
-            onChange={() => toggleStatus(listId, { done: !done, id: _id })}
+            onChange={() =>
+              toggleStatus(listId, { done: !done, id: _id, color, info, title })
+            }
           />
           <h3>{title}</h3>
         </div>
