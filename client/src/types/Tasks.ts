@@ -8,4 +8,5 @@ export interface TaskType {
   _id: string;
   deleteTask: Function;
   listId: string;
+  toggleStatus: Function;
 }

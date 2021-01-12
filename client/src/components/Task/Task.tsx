@@ -12,6 +12,7 @@ const Task = ({
   color,
   done,
   deleteTask,
+  toggleStatus,
 }: TaskType) => {
   const [taskModalOpen, setTaskModalOpen] = useState(false);
 
@@ -35,7 +36,7 @@ const Task = ({
             type="checkbox"
             name="done"
             checked={done}
-            onChange={() => console.log("change status !!")}
+            onChange={() => toggleStatus(listId, { done: !done, id: _id })}
           />
           <h3>{title}</h3>
         </div>

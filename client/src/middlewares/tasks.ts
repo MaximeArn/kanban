@@ -28,11 +28,11 @@ const tasksMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
       break;
 
     case "task/edit":
-      console.log(payload);
+      console.log("payload in middleware --> ", payload);
       axios
         .patch(`${apiUrl}/tasks`, payload)
         .then(({ data }) => {
-          console.log(data);
+          console.log("edit task return in middleware --> ", data);
           next({ type, payload: data });
         })
         .catch((error) => console.log(error));
