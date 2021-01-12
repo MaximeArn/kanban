@@ -31,8 +31,13 @@ const Task = ({
           <i>
             <FaTag color={color} />
           </i>
-          <input type="checkbox" name="done" checked={done} />
-          <p>{title}</p>
+          <input
+            type="checkbox"
+            name="done"
+            checked={done}
+            onChange={() => console.log("change status !!")}
+          />
+          <h3>{title}</h3>
         </div>
         <div className="task-icons">
           <button onClick={() => setTaskModalOpen(true)}>
