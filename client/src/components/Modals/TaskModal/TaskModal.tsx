@@ -51,8 +51,8 @@ const CreateTaskModal = ({
             closeModal();
           }}
         >
-          <input type="hidden" name="listId" value={listId} />
           <input
+            required
             type="text"
             name="title"
             placeholder="Title"

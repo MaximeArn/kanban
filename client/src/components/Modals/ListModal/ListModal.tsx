@@ -36,6 +36,7 @@ const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
           }}
         >
           <input
+            required
             type="text"
             name="name"
             placeholder="Name"
