@@ -66,12 +66,15 @@ const CreateTaskModal = ({
             value={info}
             onChange={({ target: { value } }) => setInfo(value)}
           />
-          <input
-            type="color"
-            name="color"
-            value={color}
-            onChange={({ target: { value } }) => setColor(value)}
-          />
+          <div className="color-input">
+            <p className="color-input-label">Color :</p>
+            <input
+              type="color"
+              name="color"
+              value={color}
+              onChange={({ target: { value } }) => setColor(value)}
+            />
+          </div>
           <button type="submit">{action}</button>
         </form>
       </div>

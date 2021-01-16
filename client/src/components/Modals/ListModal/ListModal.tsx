@@ -23,7 +23,7 @@ const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
     <div className="modal">
       <div className="modal-content" ref={modal}>
         <header>
-          <h2>Create a new task </h2>
+          <h2>Create List </h2>
         </header>
         <form
           onSubmit={(e) => {
@@ -43,12 +43,15 @@ const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
             value={name}
             onChange={({ target: { value } }) => setName(value)}
           />
-          <input
-            type="color"
-            name="color"
-            value={color}
-            onChange={({ target: { value } }) => setColor(value)}
-          />
+          <div className="color-input">
+            <p className="color-input-label">Color :</p>
+            <input
+              type="color"
+              name="color"
+              value={color}
+              onChange={({ target: { value } }) => setColor(value)}
+            />
+          </div>
           <button type="submit">Create</button>
         </form>
       </div>
