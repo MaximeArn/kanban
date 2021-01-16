@@ -16,7 +16,7 @@ function App({ lists, getLists }: any) {
       {createListModal && (
         <CreateListModal closeModal={() => setCreateListModal(false)} />
       )}
-      <header>
+      <header className="app-header">
         <h1>Kanban</h1>
         <button onClick={() => setCreateListModal(true)}>
           <FaPlus />
