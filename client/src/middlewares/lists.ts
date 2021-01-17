@@ -38,7 +38,7 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
       axios
         .patch(`${apiUrl}/lists`, payload)
         .then(({ data }) => {
-          next({ type, payload: data._id });
+          next({ type, payload: data });
         })
         .catch((err) => console.log(err));
       break;

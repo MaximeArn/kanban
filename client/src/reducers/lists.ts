@@ -25,6 +25,12 @@ const listsReducer = (state = initialState, { type, payload }: AnyAction) => {
       );
       return { ...state, lists: filteredLists };
 
+    case "list/edit":
+      const updatedLists = state.lists.map((list: ListType) =>
+        list._id === payload._id ? payload : list
+      );
+      return { ...state, lists: updatedLists };
+
     case "task/delete":
       return { ...state, lists: updateTaskArray(state.lists, payload) };
 
