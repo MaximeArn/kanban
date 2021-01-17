@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { ListType } from "../../types/List";
 import { TaskType } from "../../types/Tasks";
 import TaskModal from "../../containers/modals/TaskModal";
+import ListModal from "../../containers/modals/ListModal";
+
 import Task from "../../containers/Task";
 import { FaPen, FaTrashAlt, FaPlus } from "react-icons/fa";
 import "./list.scss";
 
 const List = ({ name, color, tasks, _id, deleteList }: ListType) => {
   const [taskModalOpen, setTaskModalOpen] = useState(false);
+  const [listModalOpen, setListModalOpen] = useState(false);
 
   return (
     <>
@@ -18,13 +21,16 @@ const List = ({ name, color, tasks, _id, deleteList }: ListType) => {
           action="Create"
         />
       )}
+      {listModalOpen && (
+        <ListModal closeModal={() => setListModalOpen(false)} />
+      )}
       <article className="list">
         <header className="list-header">
           <div className="left-icons-group">
             <button onClick={() => deleteList(_id)}>
               <FaTrashAlt />
             </button>
-            <button>
+            <button onClick={() => setListModalOpen(true)}>
               <FaPen />
             </button>
           </div>

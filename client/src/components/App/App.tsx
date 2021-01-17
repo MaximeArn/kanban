@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import List from "../../containers/List";
-import CreateListModal from "../../containers/modals/ListModal";
+import ListModal from "../../containers/modals/ListModal";
 import { FaPlus } from "react-icons/fa";
 import { ListType } from "../../types/List";
 import "./App.scss";
@@ -14,7 +14,7 @@ function App({ lists, getLists }: any) {
   return (
     <div className="app">
       {createListModal && (
-        <CreateListModal closeModal={() => setCreateListModal(false)} />
+        <ListModal closeModal={() => setCreateListModal(false)} />
       )}
       <header className="app-header">
         <h1>Kanban</h1>

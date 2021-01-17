@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaPen, FaTrashAlt, FaTag } from "react-icons/fa";
 import TaskModal from "../../containers/modals/TaskModal";
+import ListModal from "../Modals/ListModal/ListModal";
 import { TaskType } from "../../types/Tasks";
 import "./task.scss";
 
