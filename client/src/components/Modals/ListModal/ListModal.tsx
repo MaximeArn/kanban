@@ -40,7 +40,7 @@ const CreateListModal = ({
                   color,
                 })
               : editList({
-                  id,
+                  _id: id,
                   name,
                   color,
                 });

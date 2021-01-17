@@ -34,6 +34,14 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
         })
         .catch((err) => console.log(err));
       break;
+    case "list/edit":
+      axios
+        .patch(`${apiUrl}/lists`, payload)
+        .then(({ data }) => {
+          next({ type, payload: data._id });
+        })
+        .catch((err) => console.log(err));
+      break;
 
     default:
       next(action);

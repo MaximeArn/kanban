@@ -24,6 +24,7 @@ module.exports = {
   },
   modifyList: async ({ body }: Request, res: Response) => {
     try {
+      console.log(body);
       const modifiedList = await List.findByIdAndUpdate(body, body, {
         useFindAndModify: false,
         new: true,
