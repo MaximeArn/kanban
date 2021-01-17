@@ -14,7 +14,10 @@ function App({ lists, getLists }: any) {
   return (
     <div className="app">
       {createListModal && (
-        <ListModal closeModal={() => setCreateListModal(false)} />
+        <ListModal
+          closeModal={() => setCreateListModal(false)}
+          action="Create"
+        />
       )}
       <header className="app-header">
         <h1>Kanban</h1>

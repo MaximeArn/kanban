@@ -2,7 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { ListModalProps } from "../../../types/Modals";
 import "../modal.scss";
 
-const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
+const CreateListModal = ({
+  closeModal,
+  createList,
+  editList,
+  action,
+  id,
+}: ListModalProps) => {
   const [name, setName] = useState("");
   const [color, setColor] = useState("#ffffff");
 
@@ -23,15 +29,21 @@ const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
     <div className="modal">
       <div className="modal-content" ref={modal}>
         <header>
-          <h2>Create List </h2>
+          <h2>{action} List </h2>
         </header>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            createList({
-              name,
-              color,
-            });
+            action === "Create"
+              ? createList({
+                  name,
+                  color,
+                })
+              : editList({
+                  id,
+                  name,
+                  color,
+                });
             closeModal();
           }}
         >
@@ -52,7 +64,7 @@ const CreateListModal = ({ closeModal, createList }: ListModalProps) => {
               onChange={({ target: { value } }) => setColor(value)}
             />
           </div>
-          <button type="submit">Create</button>
+          <button type="submit">{action}</button>
         </form>
       </div>
     </div>

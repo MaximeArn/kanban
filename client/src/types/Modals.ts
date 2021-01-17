@@ -8,6 +8,9 @@ export interface TaskModalProps {
 }
 
 export interface ListModalProps {
+  id?: string;
   createList: Function;
+  editList: Function;
   closeModal: Function;
+  action: string;
 }
