@@ -28,28 +28,35 @@ const Task = ({
       )}
 
       <li className="task">
-        <div className="task-title">
-          <i>
-            <FaTag color={color} />
-          </i>
-          <input
-            type="checkbox"
-            name="done"
-            checked={done}
-            onChange={() =>
-              toggleStatus(listId, { done: !done, id: _id, color, info, title })
-            }
-          />
-          <h3>{title}</h3>
+        <div className="task-firstRow">
+          <div className="task-firstRow-title">
+            <i>
+              <FaTag color={color} />
+            </i>
+            <input
+              type="checkbox"
+              name="done"
+              checked={done}
+              onChange={() =>
+                toggleStatus(listId, { done: !done, id: _id, color, info, title })
+              }
+            />
+            <h3>{title}</h3>
+          </div>
+          <div className="task-firstRow-icons">
+            <button onClick={() => setTaskModalOpen(true)}>
+              <FaPen />
+            </button>
+            <button onClick={() => deleteTask(listId, _id)}>
+              <FaTrashAlt />
+            </button>
+          </div>
         </div>
-        <div className="task-icons">
-          <button onClick={() => setTaskModalOpen(true)}>
-            <FaPen />
-          </button>
-          <button onClick={() => deleteTask(listId, _id)}>
-            <FaTrashAlt />
-          </button>
-        </div>
+        {info && (
+          <div className="task-info">
+            <p>{info}</p>
+          </div>
+        )}
       </li>
     </>
   );

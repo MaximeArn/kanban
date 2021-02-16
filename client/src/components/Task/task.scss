@@ -1,40 +1,49 @@
 .task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #333;
   border: 1px solid #333;
   border-radius: 5px;
   padding: 1rem 0.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 
-  &-title {
-    display: flex;
-    align-items: baseline;
-    input {
-      margin-right: 1rem;
-      transform: scale(1.5);
-    }
-
-    i {
-      margin-right: 1rem;
-    }
-    font-weight: bold;
+  &-info {
+    padding: 1.5rem 1rem 0;
   }
 
-  &-icons {
-    button {
-      background-color: transparent;
-      border: none;
-      margin-right: 0.5rem;
-      color: rgb(134, 56, 56);
+  &-firstRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-      &:focus {
-        outline: none;
+    &-title {
+      display: flex;
+      align-items: baseline;
+      input {
+        margin-right: 1rem;
+        transform: scale(1.5);
       }
 
-      &:first-child {
-        color: rgb(56, 134, 69);
+      i {
+        margin-right: 1rem;
+      }
+      font-weight: bold;
+    }
+
+    &-icons {
+      button {
+        background-color: transparent;
+        border: none;
+        margin-right: 0.5rem;
+        color: rgb(134, 56, 56);
+
+        &:focus {
+          outline: none;
+        }
+
+        &:first-child {
+          color: rgb(56, 134, 69);
+        }
       }
     }
   }
