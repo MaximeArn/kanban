@@ -53,7 +53,6 @@ var tasksController = {
                         return [4 /*yield*/, task_1.default.create(taskData)];
                     case 1:
                         createdCard = _c.sent();
-                        console.log(createdCard);
                         return [4 /*yield*/, list_1.default.findByIdAndUpdate(listId, {
                                 $push: { tasks: createdCard },
                             }, { new: true, useFindAndModify: false })];

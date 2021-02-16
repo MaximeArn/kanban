@@ -93,6 +93,7 @@ module.exports = {
                 switch (_b.label) {
                     case 0:
                         _b.trys.push([0, 2, , 3]);
+                        console.log(body);
                         return [4 /*yield*/, list_1.default.findByIdAndUpdate(body, body, {
                                 useFindAndModify: false,
                                 new: true,
