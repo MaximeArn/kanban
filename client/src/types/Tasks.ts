@@ -2,7 +2,7 @@ import { AnyAction } from "@reduxjs/toolkit";
 
 export interface TaskType {
   title: string;
-  info: string | null;
+  info: string | undefined;
   color: string;
   done: boolean;
   _id: string;

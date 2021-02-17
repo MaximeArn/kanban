@@ -2,17 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import { TaskModalProps } from "../../../types/Modals";
 import "../modal.scss";
 
-const CreateTaskModal = ({
+const TaskModal = ({
   listId,
   createTask,
   editTask,
   closeModal,
   action,
   taskId,
+  defaultColor,
+  defaultInfo,
+  defaultTitle,
 }: TaskModalProps) => {
-  const [title, setTitle] = useState("");
-  const [info, setInfo] = useState("");
-  const [color, setColor] = useState("#ffffff");
+  const [title, setTitle] = useState(defaultTitle || "");
+  const [info, setInfo] = useState(defaultInfo || "");
+  const [color, setColor] = useState(defaultColor || "#ffffff");
 
   const modal = useRef<HTMLDivElement>(null);
 
@@ -82,4 +85,4 @@ const CreateTaskModal = ({
   );
 };
 
-export default CreateTaskModal;
+export default TaskModal;

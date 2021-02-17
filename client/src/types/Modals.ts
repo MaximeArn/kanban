@@ -5,6 +5,9 @@ export interface TaskModalProps {
   editTask: Function;
   closeModal: Function;
   action: string;
+  defaultColor?: string;
+  defaultInfo?: string;
+  defaultTitle?: string;
 }
 
 export interface ListModalProps {

@@ -24,6 +24,9 @@ const Task = ({
           closeModal={() => setTaskModalOpen(false)}
           action="Edit"
           taskId={_id}
+          defaultColor={color}
+          defaultTitle={title}
+          defaultInfo={info}
         />
       )}
 
