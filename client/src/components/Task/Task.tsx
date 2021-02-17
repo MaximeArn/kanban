@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPen, FaTrashAlt, FaTag } from "react-icons/fa";
+import { FaPen, FaTrashAlt } from "react-icons/fa";
 import TaskModal from "../../containers/modals/TaskModal";
 import { TaskType } from "../../types/Tasks";
 import "./task.scss";
@@ -30,9 +30,6 @@ const Task = ({
       <li className="task">
         <div className="task-firstRow">
           <div className="task-firstRow-title">
-            <i>
-              <FaTag color={color} />
-            </i>
             <input
               type="checkbox"
               name="done"
