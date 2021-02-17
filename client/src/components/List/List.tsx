@@ -22,7 +22,13 @@ const List = ({ name, color, tasks, _id, deleteList }: ListType) => {
         />
       )}
       {listModalOpen && (
-        <ListModal closeModal={() => setListModalOpen(false)} action="Edit" id={_id} />
+        <ListModal
+          closeModal={() => setListModalOpen(false)}
+          action="Edit"
+          id={_id}
+          defaultColor={color}
+          defaultTitle={name}
+        />
       )}
       <article className="list" style={{ backgroundColor: color }}>
         <header className="list-header">

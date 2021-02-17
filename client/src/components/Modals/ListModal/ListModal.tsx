@@ -8,9 +8,11 @@ const CreateListModal = ({
   editList,
   action,
   id,
+  defaultColor,
+  defaultTitle,
 }: ListModalProps) => {
-  const [name, setName] = useState("");
-  const [color, setColor] = useState("#ffffff");
+  const [name, setName] = useState(defaultTitle || "");
+  const [color, setColor] = useState(defaultColor || "#ffffff");
 
   const modal = useRef<HTMLDivElement>(null);
 

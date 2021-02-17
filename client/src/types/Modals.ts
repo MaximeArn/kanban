@@ -13,4 +13,6 @@ export interface ListModalProps {
   editList: Function;
   closeModal: Function;
   action: string;
+  defaultColor?: string;
+  defaultTitle?: string;
 }
