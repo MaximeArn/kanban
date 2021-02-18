@@ -16,7 +16,12 @@ const List = ({ name, color, tasks, _id, deleteList }: ListType) => {
 
   return (
     <>
-      {confirmationModalOpen && <ConfirmationModal />}
+      {confirmationModalOpen && (
+        <ConfirmationModal
+          closeModal={() => setConfirmationModalOpen(false)}
+          handler={() => deleteList(_id)}
+        />
+      )}
       {taskModalOpen && (
         <TaskModal
           listId={_id}

@@ -19,3 +19,8 @@ export interface ListModalProps {
   defaultColor?: string;
   defaultTitle?: string;
 }
+
+export interface ConfirmationModalProps {
+  closeModal: Function;
+  handler: Function;
+}

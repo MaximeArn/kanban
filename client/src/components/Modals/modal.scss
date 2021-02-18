@@ -42,6 +42,16 @@
           outline-color: rgb(104, 190, 63);
         }
       }
+
+      .btn-group {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          width: 45%;
+        }
+      }
+
       textarea {
         box-sizing: border-box;
         margin-bottom: 1rem;
