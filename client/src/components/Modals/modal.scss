@@ -36,6 +36,19 @@
       input {
         margin-bottom: 1rem;
         padding: 0.4em;
+        max-width: 100%;
+
+        &:focus {
+          outline-color: rgb(104, 190, 63);
+        }
+      }
+      textarea {
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 120px;
+        max-height: 240px;
 
         &:focus {
           outline-color: rgb(104, 190, 63);

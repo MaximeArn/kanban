@@ -62,13 +62,13 @@ const TaskModal = ({
             value={title}
             onChange={({ target: { value } }) => setTitle(value)}
           />
-          <input
-            type="text"
-            name="infos"
-            placeholder="Infos"
+          <textarea
             value={info}
             onChange={({ target: { value } }) => setInfo(value)}
-          />
+            placeholder="Infos"
+            name="infos"
+            cols={7}
+          ></textarea>
           <div className="color-input">
             <p className="color-input-label">Color :</p>
             <input
