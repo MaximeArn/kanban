@@ -27,10 +27,8 @@ module.exports = {
     try {
       const currentList = await List.findById(body._id);
       const listWasModified = hasItBeenChanged(currentList, body);
-      console.log("has it been changed ?? --> ", listWasModified);
 
       if (listWasModified) {
-        console.log("update !!!!");
         const modifiedList = await List.findByIdAndUpdate(body, body, {
           useFindAndModify: false,
           new: true,
