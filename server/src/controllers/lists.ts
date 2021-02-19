@@ -25,14 +25,20 @@ module.exports = {
   },
   modifyList: async ({ body }: Request, res: Response) => {
     try {
-      console.log("body", body);
       const currentList = await List.findById(body._id);
-      console.log(" has it been changed ?? --> ", hasItBeenChanged(currentList, body));
-      const modifiedList = await List.findByIdAndUpdate(body, body, {
-        useFindAndModify: false,
-        new: true,
-      });
-      res.send(modifiedList).status(200);
+      const listWasModified = hasItBeenChanged(currentList, body);
+      console.log("has it been changed ?? --> ", listWasModified);
+
+      if (listWasModified) {
+        console.log("update !!!!");
+        const modifiedList = await List.findByIdAndUpdate(body, body, {
+          useFindAndModify: false,
+          new: true,
+        });
+        res.send(modifiedList).status(200);
+      } else {
+        res.send(currentList).status(200);
+      }
     } catch (error) {
       console.error(error);
       res.send(error);
