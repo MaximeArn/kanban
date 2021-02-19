@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import List from "../models/list";
+import hasItBeenChanged from "../utils/hasItBeenChanged";
 
 module.exports = {
   getAllLists: async (req: Request, res: Response) => {
@@ -24,7 +25,9 @@ module.exports = {
   },
   modifyList: async ({ body }: Request, res: Response) => {
     try {
-      console.log(body);
+      console.log("body", body);
+      const currentList = await List.findById(body._id);
+      console.log(" has it been changed ?? --> ", hasItBeenChanged(currentList, body));
       const modifiedList = await List.findByIdAndUpdate(body, body, {
         useFindAndModify: false,
         new: true,

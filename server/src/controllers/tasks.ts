@@ -3,10 +3,7 @@ import Task from "../models/task";
 import List from "../models/list";
 
 const tasksController = {
-  createTask: async (
-    { body: { listId, taskData } }: Request,
-    res: Response
-  ) => {
+  createTask: async ({ body: { listId, taskData } }: Request, res: Response) => {
     try {
       const createdCard = await Task.create(taskData);
       const updatedList = await List.findByIdAndUpdate(
@@ -23,10 +20,7 @@ const tasksController = {
     }
   },
 
-  modifyTask: async (
-    { body: { listId, taskData } }: Request,
-    res: Response
-  ) => {
+  modifyTask: async ({ body: { listId, taskData } }: Request, res: Response) => {
     try {
       const updatedList = await List.findOneAndUpdate(
         { _id: listId, "tasks._id": taskData.id },
