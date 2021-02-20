@@ -2,9 +2,7 @@ import { Middleware } from "@reduxjs/toolkit";
 import axios from "axios";
 import apiUrl from "../environments/api";
 
-const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
-  action
-) => {
+const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (action) => {
   const { type, payload } = action;
 
   switch (type) {
