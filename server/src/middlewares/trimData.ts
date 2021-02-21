@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 
-class HttpError {
-  constructor(public status: number, public message: string) {}
-}
+// class HttpError extends Error {
+//   constructor(public status: number, public message: string) {}
+// }
 
 export default ({ method, body, path }: Request, res: Response, next: NextFunction) => {
   if (method !== "GET" && method !== "DELETE") {
@@ -14,7 +14,7 @@ export default ({ method, body, path }: Request, res: Response, next: NextFuncti
 
     if (!Object.values(required).every((value) => value === true)) {
       // return res.status(500).send("Some required fileds were not provided");
-      next(new HttpError(500, "Some required fileds were not provided"));
+      return next(new Error("Some required fileds were not provided"));
     }
   }
   next();

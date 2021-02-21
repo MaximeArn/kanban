@@ -7,5 +7,12 @@ export default (
   next: NextFunction
 ) => {
   const { status, message } = err;
-  res.status(status || 500).send(message || "oups an error occured ");
+  console.log(status, message);
+  console.log("error handler");
+  // res.set({ message });
+  console.log(req);
+  // console.log(res);
+  res.status(status || 500).json({ message });
+
+  res.send();
 };

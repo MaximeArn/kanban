@@ -40,6 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var list_1 = __importDefault(require("../models/list"));
+var hasItBeenChanged_1 = __importDefault(require("../utils/hasItBeenChanged"));
 module.exports = {
     getAllLists: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
         var lists, error_1;
@@ -88,26 +89,34 @@ module.exports = {
     modifyList: function (_a, res) {
         var body = _a.body;
         return __awaiter(void 0, void 0, void 0, function () {
-            var modifiedList, error_3;
+            var currentList, listWasModified, modifiedList, error_3;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        console.log(body);
+                        _b.trys.push([0, 5, , 6]);
+                        return [4 /*yield*/, list_1.default.findById(body._id)];
+                    case 1:
+                        currentList = _b.sent();
+                        listWasModified = hasItBeenChanged_1.default(currentList, body);
+                        if (!listWasModified) return [3 /*break*/, 3];
                         return [4 /*yield*/, list_1.default.findByIdAndUpdate(body, body, {
                                 useFindAndModify: false,
                                 new: true,
                             })];
-                    case 1:
+                    case 2:
                         modifiedList = _b.sent();
                         res.send(modifiedList).status(200);
-                        return [3 /*break*/, 3];
-                    case 2:
+                        return [3 /*break*/, 4];
+                    case 3:
+                        res.send(currentList).status(200);
+                        _b.label = 4;
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
                         error_3 = _b.sent();
                         console.error(error_3);
                         res.send(error_3);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });
