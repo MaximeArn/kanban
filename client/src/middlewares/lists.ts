@@ -38,7 +38,10 @@ const listsMiddleware: Middleware = ({ getState, dispatch }) => (next) => (actio
         .then(({ data }) => {
           next({ type, payload: data });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log("catch !!!");
+          // console.log(err);
+        });
       break;
 
     default:

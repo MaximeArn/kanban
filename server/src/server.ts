@@ -5,6 +5,7 @@ import express, { json, urlencoded } from "express";
 import listRouter from "./routers/lists";
 import tasksRouter from "./routers/tasks";
 import trimMiddleware from "./middlewares/trimData";
+import errorMiddleware from "./middlewares/error";
 
 require("./config/database")();
 
@@ -16,6 +17,7 @@ app.use(cors(corsConfig));
 app.use(urlencoded({ extended: true }));
 app.use(json());
 app.use(trimMiddleware);
+app.use(errorMiddleware);
 app.use("/lists", listRouter);
 app.use("/tasks", tasksRouter);
 
