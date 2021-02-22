@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import List from "../models/list";
+import fieldsValidator from "../utils/fieldsValidator";
 import hasItBeenChanged from "../utils/hasItBeenChanged";
 
 module.exports = {
@@ -12,9 +13,11 @@ module.exports = {
       res.send(error);
     }
   },
-  createList: async ({ body }: Request, res: Response) => {
+  createList: async (req: Request, res: Response) => {
     try {
-      const newList = new List(body);
+      const validated = fieldsValidator(req, res);
+      !validated && res.status(500).send("some required fields were not provided");
+      const newList = new List(req.body);
       const insertedList = await newList.save();
 
       res.send(insertedList).status(200);
