@@ -5,9 +5,7 @@ module.exports = () => {
     useUnifiedTopology: true,
   });
 
-  database.on("error", () =>
-    console.log("error during connection to database")
-  );
+  database.on("error", () => console.log("error during connection to database"));
   database.on("connected", () => console.log("connected to database"));
   database.on("disconnected", () => console.log("diconnected from database"));
 };

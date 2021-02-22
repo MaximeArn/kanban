@@ -9,10 +9,6 @@ export default (
   const { status, message } = err;
   console.log(status, message);
   console.log("error handler");
-  // res.set({ message });
-  console.log(req);
-  // console.log(res);
   res.status(status || 500).json({ message });
-
   res.send();
 };

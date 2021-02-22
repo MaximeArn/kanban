@@ -16,8 +16,8 @@ const app = express();
 app.use(cors(corsConfig));
 app.use(urlencoded({ extended: true }));
 app.use(json());
-app.use(trimMiddleware);
-app.use(errorMiddleware);
+// app.use(trimMiddleware);
+// app.use(errorMiddleware);
 app.use("/lists", listRouter);
 app.use("/tasks", tasksRouter);
 
