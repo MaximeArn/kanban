@@ -4,8 +4,8 @@ import cors from "cors";
 import express, { json, urlencoded } from "express";
 import listRouter from "./routers/lists";
 import tasksRouter from "./routers/tasks";
-import trimMiddleware from "./middlewares/trimData";
-import errorMiddleware from "./middlewares/error";
+// import trimMiddleware from "./middlewares/trimData";
+// import errorMiddleware from "./middlewares/error";
 
 require("./config/database")();
 
